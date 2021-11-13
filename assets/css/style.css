@@ -362,7 +362,9 @@ a.box-btn:hover i.fa {
 	padding: 0px 12px;
 	color: #fff
 }
-
+.current-menu-item a{
+    color: #a6014f !important;
+}
 #navbarNav a:hover {
 	font-weight: 500;
 	padding: 0px 12px;

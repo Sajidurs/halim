@@ -8,55 +8,42 @@ get_header();?>
       <!-- Slider Area Start -->
       <section class="slider-area" id="home">
          <div class="slider owl-carousel">
-            <div class="single-slide" style="background-image:url('<?php echo get_template_directory_uri();?>/assets/img/slider/slide-1.jpg')">
+
+
+         <?php 
+         $args = array(
+            'post_type' => 'sliders',
+            'post_per_page' => '3'
+         );
+         $query = new WP_Query( $args );
+         while( $query -> have_posts() ){
+            $query -> the_post();
+
+            $slide_subtitle =get_post_meta(get_the_ID(), 'sub_title', true);
+            $slide_btn_text =get_post_meta(get_the_ID(), 'button_text', true);
+            $slide_btn_link =get_post_meta(get_the_ID(), 'button_url', true);
+            ?>
+            <div class="single-slide" style="background:url('<?php the_post_thumbnail_url();?>')">
                <div class="container">
                   <div class="row">
                      <div class="col-xl-12">
                         <div class="slide-table">
                            <div class="slide-tablecell">
-                              <h4>We Are Advanced Batch 11</h4>
-                              <h2>Digital Agency</h2>
-                              <p>We are a passionate digital design agency that specializes in beautiful and easy-to-use digital design & web development services.</p>
-                              <a href="#" class="box-btn">our projects <i class="fa fa-angle-double-right"></i></a>
+                              <h4><?php echo $slide_subtitle;?></h4>
+                              <h2><?php the_title();?></h2>
+                              <?php the_content();?>
+                              <a href="<?php echo $slide_btn_link;?>" class="box-btn"><?php echo $slide_btn_text;?><i class="fa fa-angle-double-right"></i></a>
                            </div>
                         </div>
                      </div>
                   </div>
                </div>
             </div>
-            <div class="single-slide" style="background-image:url('<?php echo get_template_directory_uri();?>/assets/img/slider/slide-2.jpg')">
-               <div class="container">
-                  <div class="row">
-                     <div class="col-xl-12">
-                        <div class="slide-table">
-                           <div class="slide-tablecell">
-                              <h4>We Are Halim</h4>
-                              <h2>Modern Agency</h2>
-                              <p>We are a passionate digital design agency that specializes in beautiful and easy-to-use digital design & web development services.</p>
-                              <a href="#" class="box-btn">contact us <i class="fa fa-angle-double-right"></i></a>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div class="single-slide" style="background-image:url('<?php echo get_template_directory_uri();?>/assets/img/slider/slide-3.jpg')">
-               <div class="container">
-                  <div class="row">
-                     <div class="col-xl-12">
-                        <div class="slide-table">
-                           <div class="slide-tablecell">
-                              <h4>
-                              We Are Halim</h4>
-                              <h2>Creative Agency</h2>
-                              <p>We are a passionate digital design agency that specializes in beautiful and easy-to-use digital design & web development services.</p>
-                              <a href="#" class="box-btn">crreative team <i class="fa fa-angle-double-right"></i></a>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
+            <?php
+            wp_reset_postdata();
+            }
+            ?>
+
          </div>
       </section>
       <!-- Slider Area Start -->
@@ -293,7 +280,7 @@ get_header();?>
             <div class="row">
                <div class="col-md-4">
                   <div class="single-team">
-                     <img src="<?php echo get_template_directory_uri();?>/assets/img/team/1.jpg" alt="" />
+                     <img src="<?php echo get_template_directory_uri();?>/<?php echo get_template_directory_uri();?>/assets/img/team/1.jpg" alt="" />
                      <div class="team-hover">
                         <div class="team-content">
                            <h4>john doe <span>web developer</span></h4>
@@ -309,7 +296,7 @@ get_header();?>
                </div>
                <div class="col-md-4">
                   <div class="single-team">
-                     <img src="<?php echo get_template_directory_uri();?>/assets/img/team/2.jpg" alt="" />
+                     <img src="<?php echo get_template_directory_uri();?>/<?php echo get_template_directory_uri();?>/assets/img/team/2.jpg" alt="" />
                      <div class="team-hover">
                         <div class="team-content">
                            <h4>john doe <span>web developer</span></h4>
@@ -325,7 +312,7 @@ get_header();?>
                </div>
                <div class="col-md-4">
                   <div class="single-team">
-                     <img src="<?php echo get_template_directory_uri();?>/assets/img/team/3.jpg" alt="" />
+                     <img src="<?php echo get_template_directory_uri();?>/<?php echo get_template_directory_uri();?>/assets/img/team/3.jpg" alt="" />
                      <div class="team-hover">
                         <div class="team-content">
                            <h4>john doe <span>web developer</span></h4>
@@ -362,28 +349,28 @@ get_header();?>
                   <div class="testimonials owl-carousel">
                      <div class="single-testimonial">
                         <div class="testi-img">
-                           <img src="<?php echo get_template_directory_uri();?>/assets/img/testimonials/03.png" alt="" />
+                           <img src="<?php echo get_template_directory_uri();?>/<?php echo get_template_directory_uri();?>/assets/img/testimonials/03.png" alt="" />
                         </div>
                         <p>" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad assumenda culpa cumque dicta sint soluta voluptas eius iusto modi reprehenderit sint soluta voluptas. "</p>
                         <h4>john doe <span>web developer</span></h4>
                      </div>
                      <div class="single-testimonial">
                         <div class="testi-img">
-                           <img src="<?php echo get_template_directory_uri();?>/assets/img/testimonials/01.png" alt="" />
+                           <img src="<?php echo get_template_directory_uri();?>/<?php echo get_template_directory_uri();?>/assets/img/testimonials/01.png" alt="" />
                         </div>
                         <p>" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad assumenda culpa cumque dicta sint soluta voluptas eius iusto modi reprehenderit sint soluta voluptas. "</p>
                         <h4>john doe <span>web developer</span></h4>
                      </div>
                      <div class="single-testimonial">
                         <div class="testi-img">
-                           <img src="<?php echo get_template_directory_uri();?>/assets/img/testimonials/04.png" alt="" />
+                           <img src="<?php echo get_template_directory_uri();?>/<?php echo get_template_directory_uri();?>/assets/img/testimonials/04.png" alt="" />
                         </div>
                         <p>" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad assumenda culpa cumque dicta sint soluta voluptas eius iusto modi reprehenderit sint soluta voluptas. "</p>
                         <h4>john doe <span>web developer</span></h4>
                      </div>
                      <div class="single-testimonial">
                         <div class="testi-img">
-                           <img src="<?php echo get_template_directory_uri();?>/assets/img/testimonials/02.png" alt="" />
+                           <img src="<?php echo get_template_directory_uri();?>/<?php echo get_template_directory_uri();?>/assets/img/testimonials/02.png" alt="" />
                         </div>
                         <p>" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad assumenda culpa cumque dicta sint soluta voluptas eius iusto modi reprehenderit sint soluta voluptas. "</p>
                         <h4>john doe <span>web developer</span></h4>
@@ -408,7 +395,7 @@ get_header();?>
             <div class="row">
                <div class="col-md-4">
                   <div class="single-blog">
-                     <img src="<?php echo get_template_directory_uri();?>/assets/img/blog/blog1.jpg" alt="" />
+                     <img src="<?php echo get_template_directory_uri();?>/<?php echo get_template_directory_uri();?>/assets/img/blog/blog1.jpg" alt="" />
                      <div class="post-content">
                         <div class="post-title">
                            <h4><a href="#">blog title</a></h4>
@@ -426,7 +413,7 @@ get_header();?>
                </div>
                <div class="col-md-4">
                   <div class="single-blog">
-                     <img src="<?php echo get_template_directory_uri();?>/assets/img/blog/blog2.jpg" alt="" />
+                     <img src="<?php echo get_template_directory_uri();?>/<?php echo get_template_directory_uri();?>/assets/img/blog/blog2.jpg" alt="" />
                      <div class="post-content">
                         <div class="post-title">
                            <h4><a href="#">blog title</a></h4>
@@ -444,7 +431,7 @@ get_header();?>
                </div>
                <div class="col-md-4">
                   <div class="single-blog">
-                     <img src="<?php echo get_template_directory_uri();?>/assets/img/blog/blog3.jpg" alt="" />
+                     <img src="<?php echo get_template_directory_uri();?>/<?php echo get_template_directory_uri();?>/assets/img/blog/blog3.jpg" alt="" />
                      <div class="post-content">
                         <div class="post-title">
                            <h4><a href="#">blog title</a></h4>

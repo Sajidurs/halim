@@ -20,7 +20,7 @@
             <div class="row">
                <div class="col-md-4">
                   <div class="single-blog">
-                     <img src="assets/img/blog/blog1.jpg" alt="" />
+                     <img src="<?php echo get_template_directory_uri();?>/assets/img/blog/blog1.jpg" alt="" />
                      <div class="post-content">
                         <div class="post-title">
                            <h4><a href="#">blog title</a></h4>
@@ -38,7 +38,7 @@
                </div>
                <div class="col-md-4">
                   <div class="single-blog">
-                     <img src="assets/img/blog/blog2.jpg" alt="" />
+                     <img src="<?php echo get_template_directory_uri();?>/assets/img/blog/blog2.jpg" alt="" />
                      <div class="post-content">
                         <div class="post-title">
                            <h4><a href="#">blog title</a></h4>
@@ -56,7 +56,7 @@
                </div>
                <div class="col-md-4">
                   <div class="single-blog">
-                     <img src="assets/img/blog/blog3.jpg" alt="" />
+                     <img src="<?php echo get_template_directory_uri();?>/assets/img/blog/blog3.jpg" alt="" />
                      <div class="post-content">
                         <div class="post-title">
                            <h4><a href="#">blog title</a></h4>
@@ -74,7 +74,7 @@
                </div>
                <div class="col-md-4">
                   <div class="single-blog">
-                     <img src="assets/img/blog/blog3.jpg" alt="" />
+                     <img src="<?php echo get_template_directory_uri();?>/assets/img/blog/blog3.jpg" alt="" />
                      <div class="post-content">
                         <div class="post-title">
                            <h4><a href="#">blog title</a></h4>
@@ -92,7 +92,7 @@
                </div>
                <div class="col-md-4">
                   <div class="single-blog">
-                     <img src="assets/img/blog/blog3.jpg" alt="" />
+                     <img src="<?php echo get_template_directory_uri();?>/assets/img/blog/blog3.jpg" alt="" />
                      <div class="post-content">
                         <div class="post-title">
                            <h4><a href="#">blog title</a></h4>
@@ -110,7 +110,7 @@
                </div>
                <div class="col-md-4">
                   <div class="single-blog">
-                     <img src="assets/img/blog/blog3.jpg" alt="" />
+                     <img src="<?php echo get_template_directory_uri();?>/assets/img/blog/blog3.jpg" alt="" />
                      <div class="post-content">
                         <div class="post-title">
                            <h4><a href="#">blog title</a></h4>
@@ -128,7 +128,7 @@
                </div>
                <div class="col-md-4">
                   <div class="single-blog">
-                     <img src="assets/img/blog/blog3.jpg" alt="" />
+                     <img src="<?php echo get_template_directory_uri();?>/assets/img/blog/blog3.jpg" alt="" />
                      <div class="post-content">
                         <div class="post-title">
                            <h4><a href="#">blog title</a></h4>
@@ -146,7 +146,7 @@
                </div>
                <div class="col-md-4">
                   <div class="single-blog">
-                     <img src="assets/img/blog/blog3.jpg" alt="" />
+                     <img src="<?php echo get_template_directory_uri();?>/assets/img/blog/blog3.jpg" alt="" />
                      <div class="post-content">
                         <div class="post-title">
                            <h4><a href="#">blog title</a></h4>
@@ -164,7 +164,7 @@
                </div>
                <div class="col-md-4">
                   <div class="single-blog">
-                     <img src="assets/img/blog/blog3.jpg" alt="" />
+                     <img src="<?php echo get_template_directory_uri();?>/assets/img/blog/blog3.jpg" alt="" />
                      <div class="post-content">
                         <div class="post-title">
                            <h4><a href="#">blog title</a></h4>
