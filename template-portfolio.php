@@ -38,7 +38,7 @@ get_header();?>
             <div class="row grid no-gutters">
                <div class="col-md-4 grid-item cat3 cat2">
                   <div class="single-portfolio">
-                     <img src="assets/img/projects/01.jpg" alt="">
+                     <img src="<?php echo get_template_directory_uri();?>/assets/img/projects/01.jpg" alt="">
                      <div class="portfolio-hover">
                         <div class="portfolio-content">
                            <h3><a href="portfolio-single.html" class=""><i class="fa fa-link"></i> project name <span>branding</span></a></h3>
@@ -48,7 +48,7 @@ get_header();?>
                </div>
                <div class="col-md-4 grid-item cat2 cat1 cat3">
                   <div class="single-portfolio">
-                     <img src="assets/img/projects/02.jpg" alt="">
+                     <img src="<?php echo get_template_directory_uri();?>/assets/img/projects/02.jpg" alt="">
                      <div class="portfolio-hover">
                         <div class="portfolio-content">
                            <h3><a href="portfolio-single.html"><i class="fa fa-link"></i> project name <span>branding</span></a></h3>
@@ -58,7 +58,7 @@ get_header();?>
                </div>
                <div class="col-md-4 grid-item cat2 cat4 cat3" >
                   <div class="single-portfolio">
-                     <img src="assets/img/projects/03.jpg" alt="">
+                     <img src="<?php echo get_template_directory_uri();?>/assets/img/projects/03.jpg" alt="">
                      <div class="portfolio-hover">
                         <div class="portfolio-content">
                            <h3><a href="portfolio-single.html"><i class="fa fa-link"></i> project name <span>branding</span></a></h3>
@@ -68,7 +68,7 @@ get_header();?>
                </div>
                <div class="col-md-4 grid-item cat2 cat5 cat1">
                   <div class="single-portfolio">
-                     <img src="assets/img/projects/04.jpg" alt="">
+                     <img src="<?php echo get_template_directory_uri();?>/assets/img/projects/04.jpg" alt="">
                      <div class="portfolio-hover">
                         <div class="portfolio-content">
                            <h3><a href="portfolio-single.html"><i class="fa fa-link"></i> project name <span>branding</span></a></h3>
@@ -78,7 +78,7 @@ get_header();?>
                </div>
                <div class="col-md-4 grid-item cat1 cat4 cat5">
                   <div class="single-portfolio">
-                     <img src="assets/img/projects/05.jpg" alt="">
+                     <img src="<?php echo get_template_directory_uri();?>/assets/img/projects/05.jpg" alt="">
                      <div class="portfolio-hover">
                         <div class="portfolio-content">
                            <h3><a href="portfolio-single.html"><i class="fa fa-link"></i> project name <span>branding</span></a></h3>
@@ -88,7 +88,7 @@ get_header();?>
                </div>
                <div class="col-md-4 grid-item cat1 cat4 cat3">
                   <div class="single-portfolio">
-                     <img src="assets/img/projects/06.jpg" alt="">
+                     <img src="<?php echo get_template_directory_uri();?>/assets/img/projects/06.jpg" alt="">
                      <div class="portfolio-hover">
                         <div class="portfolio-content">
                            <h3><a href="portfolio-single.html"><i class="fa fa-link"></i> project name <span>branding</span></a></h3>
