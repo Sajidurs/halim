@@ -233,7 +233,7 @@ get_header();?>
 
             <?php 
                $args = array(
-                  'post_type' => 'counters',
+                  'post_type' => 'Counters',
                   'post_per_page' => '4'
                );
                $query = new WP_Query( $args );
@@ -282,19 +282,45 @@ get_header();?>
 
                <div class="col-md-4">
                   <div class="single-team">
-                     <img src="<?php echo get_template_directory_uri();?>/assets/img/team/1.jpg" alt="" />
+                     <?php the_post_thumbnail();?>
                      <div class="team-hover">
                         <div class="team-content">
                            <h4><?php the_title();?><span><?php the_field('team_designation');?></span></h4>
                            <ul>
 
+                           <?php 
+                              if ( get_field('team_facebook')) {
+                                 ?>
+                              <li><a href="<?php the_field('team_facebook');?>"><i class="fa fa-facebook"></i></a></li>
+                              <?php
+                              }
+                           ?>
 
-                              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                              <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                           <?php 
+                              if ( get_field('team_twitter')) {
+                                 ?>
+                             <li><a href="<?php the_field('team_twitter');?>"><i class="fa fa-twitter"></i></a></li>
+                              <?php
+                              }
+                           ?>
 
-                              
+                           <?php 
+                              if ( get_field('team_instagram')) {
+                                 ?>
+                               <li><a href="<?php the_field('team_instagram');?>"><i class="fa fa-linkedin"></i></a></li>
+                              <?php
+                              }
+                           ?>
+                           
+                           <?php 
+                              if ( get_field('team_google')) {
+                                 ?>
+                              <li><a href="<?php the_field('team_google');?>"><i class="fa fa-google-plus"></i></a></li>
+                              <?php
+                              }
+                           ?>
+
+
                            </ul>
                         </div>
                      </div>
@@ -381,60 +407,40 @@ get_header();?>
                </div>
             </div>
             <div class="row">
+
+            <?php 
+                     $args = array(
+                        'post_type' => 'post',
+                        'post_per_page' => '3'
+                     );
+                     $query = new WP_Query( $args );
+                     while( $query -> have_posts() ){
+                        $query -> the_post();
+                        ?>
+
                <div class="col-md-4">
                   <div class="single-blog">
-                     <img src="<?php echo get_template_directory_uri();?>/assets/img/blog/blog1.jpg" alt="" />
+                     <div class="post_img" style="background-image:url('<?php the_post_thumbnail_url();?>')"></div>
                      <div class="post-content">
                         <div class="post-title">
-                           <h4><a href="#">blog title</a></h4>
+                           <h4><a href="<?php the_permalink();?>"><?php the_title();?></a></h4>
                         </div>
                         <div class="pots-meta">
                            <ul>
-                              <li><a href="#">25 oct 2018</a></li>
-                              <li><a href="#">admin</a></li>
+                              <li><a href="#"><?php echo get_the_date();?></a></li>
+                              <li><a href="#"><?php the_author();?></a></li>
                            </ul>
                         </div>
-                        <p>Phasellus consectetuer vestibulum elit. Aenean tellus metus, bibendum sed, posuere ac, mattis non, nunc. Vestibulum fringilla pede sit amet augue. In turpis.</p>
-                        <a href="#" class="box-btn">read more <i class="fa fa-angle-double-right"></i></a>
+                        <?php the_excerpt();?>
+                        <a href="<?php the_permalink();?>" class="box-btn"><?php _e( "read more ", "halim" );?><i class="fa fa-angle-double-right"></i></a>
                      </div>
                   </div>
                </div>
-               <div class="col-md-4">
-                  <div class="single-blog">
-                     <img src="<?php echo get_template_directory_uri();?>/assets/img/blog/blog2.jpg" alt="" />
-                     <div class="post-content">
-                        <div class="post-title">
-                           <h4><a href="#">blog title</a></h4>
-                        </div>
-                        <div class="pots-meta">
-                           <ul>
-                              <li><a href="#">25 oct 2018</a></li>
-                              <li><a href="#">admin</a></li>
-                           </ul>
-                        </div>
-                        <p>Phasellus consectetuer vestibulum elit. Aenean tellus metus, bibendum sed, posuere ac, mattis non, nunc. Vestibulum fringilla pede sit amet augue. In turpis.</p>
-                        <a href="#" class="box-btn">read more <i class="fa fa-angle-double-right"></i></a>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-md-4">
-                  <div class="single-blog">
-                     <img src="<?php echo get_template_directory_uri();?>/assets/img/blog/blog3.jpg" alt="" />
-                     <div class="post-content">
-                        <div class="post-title">
-                           <h4><a href="#">blog title</a></h4>
-                        </div>
-                        <div class="pots-meta">
-                           <ul>
-                              <li><a href="#">25 oct 2018</a></li>
-                              <li><a href="#">admin</a></li>
-                           </ul>
-                        </div>
-                        <p>Phasellus consectetuer vestibulum elit. Aenean tellus metus, bibendum sed, posuere ac, mattis non, nunc. Vestibulum fringilla pede sit amet augue. In turpis.</p>
-                        <a href="#" class="box-btn">read more <i class="fa fa-angle-double-right"></i></a>
-                     </div>
-                  </div>
-               </div>
+            <?php
+                     }
+                     wp_reset_postdata();
+                     ?>
+
             </div>
          </div>
       </section>

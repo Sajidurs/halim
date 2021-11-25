@@ -1723,3 +1723,12 @@ a.box-btn:hover i.fa {
 	border: 1px solid #ddd;
 	padding: 3px;
   }
+
+
+  /* Extra CSS */
+  .post_img {
+    height: 200px;
+    background-size: cover;
+    /* width: 300px; */
+    background-position: center;
+}
