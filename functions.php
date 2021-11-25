@@ -3,7 +3,7 @@ require_once(get_theme_file_path("/inc/custom-post.php"));
 function halim_setup() {
 
     add_theme_support('title-tag');
-    add_theme_support('post-thumbnails', array('post', 'sliders', 'teams', 'testimonials', 'portfolio', 'gallery'));
+    add_theme_support('post-thumbnails', array('post', 'sliders', 'clients', 'teams', 'testimonials', 'portfolio', 'gallery'));
     load_theme_textdomain('halim', get_template_directory() . '/languages');
 
     register_nav_menus(array(

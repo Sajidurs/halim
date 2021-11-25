@@ -32,7 +32,17 @@ get_header();?>
                               <h4><?php echo $slide_subtitle;?></h4>
                               <h2><?php the_title();?></h2>
                               <?php the_content();?>
-                              <a href="<?php echo $slide_btn_link;?>" class="box-btn"><?php echo $slide_btn_text;?><i class="fa fa-angle-double-right"></i></a>
+
+                              <?php 
+                                 if($slide_btn_text) {
+                                    ?>
+                                       <a href="<?php echo $slide_btn_link;?>" class="box-btn"><?php echo $slide_btn_text;?><i class="fa fa-angle-double-right"></i></a>
+
+                                    <?php
+                                 }
+                             ?>
+
+
                            </div>
                         </div>
                      </div>
@@ -185,54 +195,31 @@ get_header();?>
                </div>
             </div>
             <div class="row">
+
+                  <?php 
+               $args = array(
+                  'post_type' => 'services',
+                  'post_per_page' => '6'
+               );
+               $query = new WP_Query( $args );
+               while( $query -> have_posts() ){
+                  $query -> the_post();
+                  ?>
+
                <div class="col-lg-4 col-md-6">
                   <!-- Single Service -->
                   <div class="single-service">
-                     <i class="fa fa-laptop"></i>
-                     <h4>Web Design </h4>
-                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry typesetting industry </p>
+                     <i class="<?php the_field('icons');?>"></i>
+                     <h4><?php the_title();?></h4>
+                     <?php the_content();?>
                   </div>
                </div>
-               <div class="col-lg-4 col-md-6">
-                  <!-- Single Service -->
-                  <div class="single-service">
-                     <i class="fa fa-gears"></i>
-                     <h4>Web Development</h4>
-                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry typesetting industry </p>
-                  </div>
-               </div>
-               <div class="col-lg-4 col-md-6">
-                  <!-- Single Service -->
-                  <div class="single-service">
-                     <i class="fa fa-mobile"></i>
-                     <h4>Responsive Design</h4>
-                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry typesetting industry </p>
-                  </div>
-               </div>
-               <div class="col-lg-4 col-md-6">
-                  <!-- Single Service -->
-                  <div class="single-service">
-                     <i class="fa fa-magic"></i>
-                     <h4>Graphic Design</h4>
-                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry typesetting industry </p>
-                  </div>
-               </div>
-               <div class="col-lg-4 col-md-6">
-                  <!-- Single Service -->
-                  <div class="single-service">
-                     <i class="fa fa-pencil"></i>
-                     <h4>Creative Design</h4>
-                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry typesetting industry </p>
-                  </div>
-               </div>
-               <div class="col-lg-4 col-md-6">
-                  <!-- Single Service -->
-                  <div class="single-service">
-                     <i class="fa fa-fa fa-lightbulb-o"></i>
-                     <h4>Branding</h4>
-                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry typesetting industry </p>
-                  </div>
-               </div>
+               <?php 
+               }
+               wp_reset_postdata();
+               ?>
+
+
             </div>
          </div>
       </section>
@@ -242,26 +229,28 @@ get_header();?>
       <section class="counter-area">
          <div class="container-fluid">
             <div class="row">
+
+
+            <?php 
+               $args = array(
+                  'post_type' => 'counters',
+                  'post_per_page' => '4'
+               );
+               $query = new WP_Query( $args );
+               while( $query -> have_posts() ){
+                  $query -> the_post();
+                  ?>
+
                <div class="col-md-3">
                   <div class="single-counter">
-                     <h4><i class="fa fa-user"></i><span class="counter">567</span>customers</span></h4>
+                     <h4><i class="<?php the_field('counter_icon');?>"></i><span class="counter"><?php the_field('counter_number');?></span><?php the_title();?></span></h4>
                   </div>
                </div>
-               <div class="col-md-3">
-                  <div class="single-counter">
-                     <h4><i class="fa fa-code"></i><span class="counter">236</span>line of codes</h4>
-                  </div>
-               </div>
-               <div class="col-md-3">
-                  <div class="single-counter">
-                     <h4><i class="fa fa-file"></i><span class="counter">789</span>users</h4>
-                  </div>
-               </div>
-               <div class="col-md-3">
-                  <div class="single-counter">
-                     <h4><i class="fa fa-coffee"></i><span class="counter">1,395</span>cup of coffees</h4>
-                  </div>
-               </div>
+               <?php 
+               }
+               wp_reset_postdata();
+               ?>
+
             </div>
          </div>
       </section>
@@ -278,54 +267,45 @@ get_header();?>
                </div>
             </div>
             <div class="row">
+
+
+            <?php 
+               $args = array(
+                  'post_type' => 'Teams',
+                  'post_per_page' => '3'
+               );
+               $query = new WP_Query( $args );
+               while( $query -> have_posts() ){
+                  $query -> the_post();
+                  ?>
+
+
                <div class="col-md-4">
                   <div class="single-team">
-                     <img src="<?php echo get_template_directory_uri();?>/<?php echo get_template_directory_uri();?>/assets/img/team/1.jpg" alt="" />
+                     <img src="<?php echo get_template_directory_uri();?>/assets/img/team/1.jpg" alt="" />
                      <div class="team-hover">
                         <div class="team-content">
-                           <h4>john doe <span>web developer</span></h4>
+                           <h4><?php the_title();?><span><?php the_field('team_designation');?></span></h4>
                            <ul>
+
+
                               <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                               <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                               <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
                               <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+
+                              
                            </ul>
                         </div>
                      </div>
                   </div>
                </div>
-               <div class="col-md-4">
-                  <div class="single-team">
-                     <img src="<?php echo get_template_directory_uri();?>/<?php echo get_template_directory_uri();?>/assets/img/team/2.jpg" alt="" />
-                     <div class="team-hover">
-                        <div class="team-content">
-                           <h4>john doe <span>web developer</span></h4>
-                           <ul>
-                              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                              <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                           </ul>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-md-4">
-                  <div class="single-team">
-                     <img src="<?php echo get_template_directory_uri();?>/<?php echo get_template_directory_uri();?>/assets/img/team/3.jpg" alt="" />
-                     <div class="team-hover">
-                        <div class="team-content">
-                           <h4>john doe <span>web developer</span></h4>
-                           <ul>
-                              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                              <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                           </ul>
-                        </div>
-                     </div>
-                  </div>
-               </div>
+
+               <?php 
+               }
+               wp_reset_postdata();
+               ?>
+
             </div>
          </div>
       </section>
@@ -347,34 +327,42 @@ get_header();?>
             <div class="row">
                <div class="col-md-12">
                   <div class="testimonials owl-carousel">
+
+
+                    <?php 
+                     $args = array(
+                        'post_type' => 'clients',
+                        'post_per_page' => '4'
+                     );
+                     $query = new WP_Query( $args );
+                     while( $query -> have_posts() ){
+                        $query -> the_post();
+
+                        $c_name =get_post_meta(get_the_ID(), 'c_name', true);
+                        $c_position =get_post_meta(get_the_ID(), 'c_position_', true);
+                        ?>
+
                      <div class="single-testimonial">
                         <div class="testi-img">
-                           <img src="<?php echo get_template_directory_uri();?>/<?php echo get_template_directory_uri();?>/assets/img/testimonials/03.png" alt="" />
+                           <?php the_post_thumbnail();?>
                         </div>
-                        <p>" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad assumenda culpa cumque dicta sint soluta voluptas eius iusto modi reprehenderit sint soluta voluptas. "</p>
-                        <h4>john doe <span>web developer</span></h4>
+                       <?php the_content();?>
+                        <h4><?php echo $c_position;?><span><?php the_title();?></span></h4>
                      </div>
-                     <div class="single-testimonial">
-                        <div class="testi-img">
-                           <img src="<?php echo get_template_directory_uri();?>/<?php echo get_template_directory_uri();?>/assets/img/testimonials/01.png" alt="" />
-                        </div>
-                        <p>" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad assumenda culpa cumque dicta sint soluta voluptas eius iusto modi reprehenderit sint soluta voluptas. "</p>
-                        <h4>john doe <span>web developer</span></h4>
-                     </div>
-                     <div class="single-testimonial">
-                        <div class="testi-img">
-                           <img src="<?php echo get_template_directory_uri();?>/<?php echo get_template_directory_uri();?>/assets/img/testimonials/04.png" alt="" />
-                        </div>
-                        <p>" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad assumenda culpa cumque dicta sint soluta voluptas eius iusto modi reprehenderit sint soluta voluptas. "</p>
-                        <h4>john doe <span>web developer</span></h4>
-                     </div>
-                     <div class="single-testimonial">
-                        <div class="testi-img">
-                           <img src="<?php echo get_template_directory_uri();?>/<?php echo get_template_directory_uri();?>/assets/img/testimonials/02.png" alt="" />
-                        </div>
-                        <p>" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad assumenda culpa cumque dicta sint soluta voluptas eius iusto modi reprehenderit sint soluta voluptas. "</p>
-                        <h4>john doe <span>web developer</span></h4>
-                     </div>
+                     <?php
+                       }
+                     ?>
+
+
+
+
+
+
+
+
+
+
+
                   </div>
                </div>
             </div>
@@ -395,7 +383,7 @@ get_header();?>
             <div class="row">
                <div class="col-md-4">
                   <div class="single-blog">
-                     <img src="<?php echo get_template_directory_uri();?>/<?php echo get_template_directory_uri();?>/assets/img/blog/blog1.jpg" alt="" />
+                     <img src="<?php echo get_template_directory_uri();?>/assets/img/blog/blog1.jpg" alt="" />
                      <div class="post-content">
                         <div class="post-title">
                            <h4><a href="#">blog title</a></h4>
@@ -413,7 +401,7 @@ get_header();?>
                </div>
                <div class="col-md-4">
                   <div class="single-blog">
-                     <img src="<?php echo get_template_directory_uri();?>/<?php echo get_template_directory_uri();?>/assets/img/blog/blog2.jpg" alt="" />
+                     <img src="<?php echo get_template_directory_uri();?>/assets/img/blog/blog2.jpg" alt="" />
                      <div class="post-content">
                         <div class="post-title">
                            <h4><a href="#">blog title</a></h4>
@@ -431,7 +419,7 @@ get_header();?>
                </div>
                <div class="col-md-4">
                   <div class="single-blog">
-                     <img src="<?php echo get_template_directory_uri();?>/<?php echo get_template_directory_uri();?>/assets/img/blog/blog3.jpg" alt="" />
+                     <img src="<?php echo get_template_directory_uri();?>/assets/img/blog/blog3.jpg" alt="" />
                      <div class="post-content">
                         <div class="post-title">
                            <h4><a href="#">blog title</a></h4>
