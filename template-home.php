@@ -187,12 +187,17 @@ get_header();?>
          <div class="container">
             <div class="row section-title">
                <div class="col-md-6 text-right">
-                  <h3><span>who we are?</span> our services</h3>
+                  <!-- Dynamic About Content Starting -->
+                         <?php
+                           $service_content = get_field( 'services_section', 'option' );
+                        ?>
+                  <h3><span><?php echo $service_content[ 'heading' ];?></span> <?php echo $service_content[ 'sub_heating' ];?></h3>
                </div>
                <div class="col-md-6">
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry typesetting industry.d </p>
+                  <p><?php echo $service_content[ 'description' ];?></p>
                </div>
             </div>
+
             <div class="row">
 
                   <?php 

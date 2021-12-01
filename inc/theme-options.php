@@ -30,6 +30,30 @@ if( function_exists('acf_add_options_page') ) {
 	));
 
 	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Theme Services Section',
+		'menu_title'	=> 'Services',
+		'parent_slug'	=> 'theme-general-settings',
+	));
+
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Theme Team Section',
+		'menu_title'	=> 'Team',
+		'parent_slug'	=> 'theme-general-settings',
+	));
+
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Theme Clients Section',
+		'menu_title'	=> 'Clients',
+		'parent_slug'	=> 'theme-general-settings',
+	));
+
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Theme Blogs Section',
+		'menu_title'	=> 'Blogs',
+		'parent_slug'	=> 'theme-general-settings',
+	));
+
+	acf_add_options_sub_page(array(
 		'page_title' 	=> 'Theme CTA Section',
 		'menu_title'	=> 'CTA',
 		'parent_slug'	=> 'theme-general-settings',
