@@ -12,17 +12,48 @@
 				<div class="row">
 					<div class="col-md-6 col-sm-12">
 						<div class="header-left">
-							<a href=""><i class="fa fa-envelope"></i> info@halim.com</a>
-							<a href=""><i class="fa fa-phone"></i> 23457689</a>
+
+                  <!-- The Header Contact Part Starting -->
+                  <?php
+                  // Making Variable For Both Functions
+                     $email = get_field('email', 'option');
+                     $phone = get_field('phone', 'option');
+                     // Email
+                     if ( $email ) {
+                        ?>
+                        <a href="mailto:"><i class="fa fa-envelope"></i> <?php echo $email;?></a>
+                        <?php
+                     }
+                     // Phone
+                     if( $phone ) {
+                     ?>
+                        <a href=""><i class="fa fa-phone"></i> <?php echo $phone;?></a>
+                     <?php
+                        }
+                     ?>
+                  <!-- The Header Contact Part Ending -->
+
 						</div>
 					</div>
 					<div class="col-md-6 col-sm-12 text-right">
 						<div class="header-social">
-							<a href=""><i class="fa fa-facebook"></i></a>
-							<a href=""><i class="fa fa-twitter"></i></a>
-							<a href=""><i class="fa fa-youtube"></i></a>
-							<a href=""><i class="fa fa-linkedin"></i></a>
-							<a href=""><i class="fa fa-google-plus"></i></a>
+                     
+                  <!-- The Header Social Part Starting -->
+                     <?php
+                     // Making Variable For The Reapeter
+                     $socials = get_field('header_social', 'option');
+                     // Running A ForEach Loop
+                     foreach( $socials as $social ) {
+                     ?>
+                     <!-- SHowing HTMl Code in a Dynamic Way -->
+                     <a href="<?php echo $social['links'];?>"><i class="fa <?php echo $social['icons'];?>"></i></a>
+                     <!-- Starting php tage again to complete the process -->
+                     <?php
+                     }
+                     ?>
+                  <!-- The Header Social Part Ending -->
+
+
 						</div>
 					</div>
 				</div>

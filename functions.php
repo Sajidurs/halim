@@ -1,5 +1,7 @@
 <?php
 require_once(get_theme_file_path("/inc/custom-post.php"));
+require_once(get_theme_file_path("/inc/theme-options.php"));
+require_once(get_theme_file_path("/inc/option-css.php"));
 function halim_setup() {
 
     add_theme_support('title-tag');
@@ -11,7 +13,7 @@ function halim_setup() {
     ));
 
 }
-add_action('after_setup_theme', 'halim_setup');
+add_action('after_setup_theme', 'halim_setup'); 
 
 function halim_assets() {
     
