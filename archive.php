@@ -4,10 +4,10 @@
         <div class="row">
             <div class="col-xl-12">
                 <div class="breadcumb">
-                    <h4>Blog</h4>
+                    <h4><?php the_archive_title();?></h4>
                     <ul>
                         <li><a href=""></a>Home</li> / 
-                        <li>Blog</li>
+                        <li><?php the_archive_title();?></li>
                     </ul>
                 </div>
             </div>
@@ -33,7 +33,7 @@
                         <div class="pots-meta">
                            <ul>
                               <li><a href="#"><?php echo get_the_date();?></a></li>
-                              <li><a href="#"><?php the_author_posts_link();?></a></li>
+                              <li><a href="#"><?php the_author();?></a></li>
                               <li><?php echo get_the_category_list( "  " );?></li>
                            </ul>
                         </div>

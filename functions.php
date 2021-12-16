@@ -38,3 +38,65 @@ function halim_assets() {
 
 }   
 add_action('wp_enqueue_scripts', 'halim_assets');
+
+// Blog Page Content Excerpt Length
+function text_domain_custom_excerpt_length( $length ) {
+    return 30;
+}
+add_filter( 'excerpt_length', 'text_domain_custom_excerpt_length', 999 );
+
+// Register Sidebar
+function halim_theme_slug_widgets_init() {
+    register_sidebar( array(
+        'name'          => __( 'Main Sidebar', 'halim' ),
+        'id'            => 'sidebar',
+        'description'   => __( 'Widgets in this area will be shown on all posts and pages.', 'halim' ),
+        'before_widget' => '<div class="single-sidebar">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h4>',
+        'after_title'   => '</h2>',
+    ) );
+}
+add_action( 'widgets_init', 'halim_theme_slug_widgets_init' );
+
+// Registering Footer Widget 1
+function halim_theme_slug_widgets_footer1() {
+    register_sidebar( array(
+        'name'          => __( 'Footer 1', 'halim' ),
+        'id'            => 'footer1',
+        'description'   => __( 'Widgets in this area will be shown on all posts and pages.', 'halim' ),
+        'before_widget' => ' <div class="single-footer footer-logo">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3>',
+        'after_title'   => '</h3>',
+    ) );
+}
+add_action( 'widgets_init', 'halim_theme_slug_widgets_footer1' );
+
+// Registering Footer Widget 2
+function halim_theme_slug_widgets_footer2() {
+    register_sidebar( array(
+        'name'          => __( 'Footer 2', 'halim' ),
+        'id'            => 'footer2',
+        'description'   => __( 'Widgets in this area will be shown on all posts and pages.', 'halim' ),
+        'before_widget' => ' <div class="single-footer">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3>',
+        'after_title'   => '</h3>',
+    ) );
+}
+add_action( 'widgets_init', 'halim_theme_slug_widgets_footer2' );
+
+// Registering Footer Widget 3
+function halim_theme_slug_widgets_footer3() {
+    register_sidebar( array(
+        'name'          => __( 'Footer 3', 'halim' ),
+        'id'            => 'footer3',
+        'description'   => __( 'Widgets in this area will be shown on all posts and pages.', 'halim' ),
+        'before_widget' => ' <div class="single-footer">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3>',
+        'after_title'   => '</h3>',
+    ) );
+}
+add_action( 'widgets_init', 'halim_theme_slug_widgets_footer3' );

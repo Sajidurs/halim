@@ -50,8 +50,8 @@ get_header();?>
                </div>
             </div>
             <?php
-            wp_reset_postdata();
             }
+            wp_reset_postdata();
             ?>
 
          </div>
@@ -104,6 +104,7 @@ get_header();?>
                            </div> 
                   <?php
                            }
+                           wp_reset_postdata();
                         ?> 
                </div>
             </div>
@@ -148,6 +149,7 @@ get_header();?>
 
                         <?php
                            }
+                           wp_reset_postdata();
                         ?>
 
 
@@ -173,6 +175,7 @@ get_header();?>
                      </div>
                      <?php
                            }
+                           wp_reset_postdata();
                            ?>
 
 
@@ -264,14 +267,16 @@ get_header();?>
          <div class="container">
             <div class="row section-title">
                <div class="col-md-6 text-right">
-                  <h3><span>who we are?</span> creative team</h3>
+                  <?php 
+                     $team_content = get_field( 'team_section', 'option' );
+                     ?>
+                  <h3><span><?php echo $team_content['sub_heating'];?></span> <?php echo $team_content['heading'];?> </h3>
                </div>
                <div class="col-md-6">
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry typesetting industry.d </p>
+                  <p><?php echo $team_content['description'];?> </p>
                </div>
             </div>
             <div class="row">
-
 
             <?php 
                $args = array(
@@ -346,10 +351,13 @@ get_header();?>
          <div class="container">
             <div class="row section-title white-section">
                <div class="col-md-6 text-right">
-                  <h3><span>who we are?</span> what client say</h3>
+                  <?php 
+                     $client_content = get_field('client_section', 'option');
+                     ?>
+                  <h3><span><?php echo $client_content['sub_heating'];?> </span> <?php echo $client_content['heading'];?></h3>
                </div>
                <div class="col-md-6">
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry typesetting industry.d </p>
+                  <p><?php echo $client_content['description'];?> </p>
                </div>
             </div>
          </div>
@@ -381,6 +389,7 @@ get_header();?>
                      </div>
                      <?php
                        }
+                       wp_reset_postdata();
                      ?>
 
 
@@ -404,10 +413,13 @@ get_header();?>
          <div class="container">
             <div class="row section-title">
                <div class="col-md-6 text-right">
-                  <h3><span>who we are?</span> latest news</h3>
+                  <?php 
+                     $news_content = get_field('blog_section', 'option');
+                     ?>
+                  <h3><span><?php echo $news_content['sub_heating'];?> </span><?php echo $news_content['heading'];?></h3>
                </div>
                <div class="col-md-6">
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry typesetting industry.d </p>
+                  <p><?php echo $news_content['description'];?></p>
                </div>
             </div>
             <div class="row">

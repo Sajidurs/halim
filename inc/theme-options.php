@@ -70,5 +70,17 @@ if( function_exists('acf_add_options_page') ) {
 		'menu_title'	=> 'Under Footer',
 		'parent_slug'	=> 'theme-general-settings',
 	));
+
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Color Options',
+		'menu_title'	=> 'Set Colors',
+		'parent_slug'	=> 'theme-general-settings',
+	));
+
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Contact Page',
+		'menu_title'	=> 'Contact Page',
+		'parent_slug'	=> 'theme-general-settings',
+	));
 }
 
