@@ -29,14 +29,22 @@ get_header();?>
                      <div class="col-xl-12">
                         <div class="slide-table">
                            <div class="slide-tablecell">
-                              <h4><?php echo $slide_subtitle;?></h4>
+
+                           <?php 
+                           if(class_exists('ACF')) {
+                              $sub_title = get_field('slider_subtitle');
+                              $btn_url = get_field('slider_btn_url');
+                              $btn_text = get_field('slider_btn_text');
+                           }
+                           ?>
+                              <h4><?php echo $sub_title?></h4>
                               <h2><?php the_title();?></h2>
                               <?php the_content();?>
 
                               <?php 
-                                 if($slide_btn_text) {
+                                 if( $btn_text ) {
                                     ?>
-                                       <a href="<?php echo $slide_btn_link;?>" class="box-btn"><?php echo $slide_btn_text;?><i class="fa fa-angle-double-right"></i></a>
+                                       <a href="<?php echo esc_url($btn_url);?>" class="box-btn"><?php echo $btn_text;?><i class="fa fa-angle-double-right"></i></a>
 
                                     <?php
                                  }
@@ -65,7 +73,9 @@ get_header();?>
 
                   <!-- Dynamic About Heading Starting -->
                   <?php
-                     $about_title = get_field( 'about_section_title', 'option' );
+                     if(class_exists('ACF')){
+                        $about_title = get_field( 'about_section_title', 'option' );
+                     }
                   ?>
 
                   <h3><span><?php echo $about_title[ 'sub_heating' ];?></span> <?php echo $about_title[ 'heading' ];?></h3>
@@ -81,12 +91,14 @@ get_header();?>
                      <div class="page-title">
                         <!-- Dynamic About Content Starting -->
                         <?php
-                           $about_content = get_field( 'about_content', 'option' );
+                           if(class_exists('ACF')){
+                              $about_content = get_field( 'about_content', 'option' );
+                           }
                         ?>
                         <h4><?php echo $about_content[ 'title' ];?></h4>
                      </div>
                      <p><?php echo $about_content[ 'description' ];?></p>
-                     <a href="<?php echo $about_content[ 'btn_url' ];?>" class="box-btn"><?php echo $about_content[ 'btn_text' ];?><i class="fa fa-angle-double-right"></i></a>
+                     <a href="<?php echo esc_url($about_content[ 'btn_url' ]);?>" class="box-btn"><?php echo $about_content[ 'btn_text' ];?><i class="fa fa-angle-double-right"></i></a>
                   </div>
                         <!-- Dynamic About Content Ending -->
 
@@ -94,11 +106,13 @@ get_header();?>
                <div class="col-md-5">
                     <!-- Dynamic About Features Starting -->
                     <?php
-                           $features = get_field( 'about_features', 'option' );
+                           if(class_exists('ACF')){
+                              $features = get_field( 'about_features', 'option' );
+                           }
                            foreach ($features as $feature) {
                            ?>
                            <div class="single_about">
-                              <i class="fa <?php echo $feature[ 'icon' ];?>"></i>
+                              <i class="fa <?php echo esc_attr( $feature[ 'icon' ] );?>"></i>
                               <h4><?php echo $feature[ 'title' ];?></h4>
                               <p><?php echo $feature[ 'description' ];?></p>
                            </div> 
@@ -165,7 +179,9 @@ get_header();?>
 
                         <!-- Dynamic About Features Starting -->
                            <?php
-                           $skills = get_field( 'skills', 'option' );
+                           if(class_exists('ACF')){
+                              $skills = get_field( 'skills', 'option' );
+                           }
                            foreach ($skills as $skill) {
                            ?>
 
