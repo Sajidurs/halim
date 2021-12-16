@@ -1,7 +1,10 @@
 <?php
-require_once(get_theme_file_path("/inc/custom-post.php"));
 require_once(get_theme_file_path("/inc/theme-options.php"));
 require_once(get_theme_file_path("/inc/option-css.php"));
+require_once(get_theme_file_path("/inc/class-tgm-plugin-activation.php"));
+require_once(get_theme_file_path("/inc/halim-activation.php"));
+require_once(get_theme_file_path("/inc/halim-demo-import.php"));
+require_once(get_theme_file_path("/inc/halim-acf-data.php"));
 function halim_setup() {
 
     add_theme_support('title-tag');
